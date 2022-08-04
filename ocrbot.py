@@ -29,7 +29,7 @@ def convert_image (update, context):
     file_id = update.message.photo[-1].file_id
     newFile = context.bot.get_file(file_id)
     newFile.download(file_name)
-    # pytesseract.pytesseract.tesseract_cmd = 'C:\Program Files\Tesseract-OCR\\tesseract.exe'
+    pytesseract.pytesseract.tesseract_cmd = 'C:\Program Files\Tesseract-OCR\\tesseract.exe'
     update.message.reply_text("Your image is under processing! \n\n ")
     # print(pytesseract.get_languages(config=''))
     extracted_text = pytesseract.image_to_string(Image.open(file_name))
