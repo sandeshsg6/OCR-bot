@@ -5,6 +5,7 @@ from PIL import Image
 import pytesseract
 import os
 import constants
+import time
 
 #from traceback import print_exc
 
@@ -34,7 +35,8 @@ def convert_image (update, context):
     try:
         update.message.reply_text(extracted_text)
     except:
-         update.message.reply_text(constants.no_text_found)
+        time.sleep(3)
+        update.message.reply_text(constants.no_text_found)
 
 def main() -> None:
     """Start the bot."""
