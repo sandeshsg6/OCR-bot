@@ -22,7 +22,10 @@ def start(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(constants.welcome_text)
 
 def reply_for_text_message (update, context):
-    update.message.reply_text(constants.reply_to_text_message)
+    update.message.reply_text(constants.reply_to_text_message)   
+
+def Ccontact_details (update, context):
+    update.message.reply_text(constants.contact_me)
 
 def convert_image (update, context):
     file_name = "test.jpg"
@@ -49,6 +52,7 @@ def main() -> None:
 
     # on different commands - answer in Telegram
     dispatcher.add_handler(CommandHandler("start", start))
+    dispatcher.add_handler(CommandHandler("contact", Ccontact_details))
     dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, reply_for_text_message))
 
     #on sending an image
