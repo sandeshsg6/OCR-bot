@@ -18,7 +18,6 @@ logger = logging.getLogger(__name__)
 
 # Define a few command handlers. These usually take the two arguments update and context.
 def start(update: Update, context: CallbackContext) -> None:
-    """Send a message when the command /start is issued."""
     update.message.reply_text(constants.welcome_text)
 
 def reply_for_text_message (update, context):
@@ -30,10 +29,12 @@ def convert_image (update, context):
     newFile = context.bot.get_file(file_id)
     newFile.download(file_name)
     pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
-    update.message.reply_text("Your image is under processing! \n\n  ")
-    # print(pytesseract.get_languages(config=''))
+    update.message.reply_text(constants.processing_your_image)
     extracted_text = pytesseract.image_to_string(Image.open(file_name))
-    update.message.reply_text(extracted_text)
+    if extracted_text:
+        update.message.reply_text(extracted_text)
+    else:
+         update.message.reply_text(constants.no_text_found)
 
 def main() -> None:
     """Start the bot."""
