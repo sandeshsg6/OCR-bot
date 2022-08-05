@@ -1,4 +1,3 @@
 python-telegram-bot
 pytesseract
 tesseract-ocr
-tesseract-ocr-eng
