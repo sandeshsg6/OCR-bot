@@ -31,9 +31,9 @@ def convert_image (update, context):
     pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
     update.message.reply_text(constants.processing_your_image)
     extracted_text = pytesseract.image_to_string(Image.open(file_name))
-    if extracted_text:
+    try:
         update.message.reply_text(extracted_text)
-    else:
+    except:
          update.message.reply_text(constants.no_text_found)
 
 def main() -> None:
