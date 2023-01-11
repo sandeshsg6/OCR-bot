@@ -3,3 +3,4 @@ reply_to_text_message = 'Hey, I\'m not designed to reply to text messages 😕\n
 no_text_found = 'It\'s time to get my eye 👀 tested\nI\'m not able to read any text in this image 😔\nTrust me, I even tried with my 👓 on!'
 processing_your_image = 'Hold back tight.\nWe are decoding your image 👨‍💻️'
 contact_me = 'For any queries reach out to @dronefill'
+BOT_TOKEN = ''
